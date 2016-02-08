@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_id": "rest-client-ecd62",
+    "project_number": "144793630266",
+    "name": "Rest Client"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144793630266:android:fa7f865a884f7e28",
+        "client_id": "android:com.androidveteran.android.restclient",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.androidveteran.android.restclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144793630266-snvqt12relugf10kdguvloltab3jstcs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.androidveteran.android.restclient",
+            "certificate_hash": "4CF86E3348C8DD52B755F4CC6777299D2E272C81"
+          }
+        },
+        {
+          "client_id": "144793630266-bq22a2k8gr1dlp8h91oplj52cv26h8as.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
