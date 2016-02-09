@@ -45,5 +45,10 @@
             android:name="AA_MODELS"
             android:value="com.androidveteran.android.restclient.database.model.User" />
 
+        <activity
+            android:name=".activity.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
+
 </manifest>

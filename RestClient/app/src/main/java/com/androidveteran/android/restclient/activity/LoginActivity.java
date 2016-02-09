@@ -119,6 +119,7 @@ public class LoginActivity extends BaseAppCompatActivity implements GoogleApiCli
             Toast.makeText(LoginActivity.this, acct.getDisplayName() + " - " + acct.getEmail(), Toast.LENGTH_SHORT).show();
 //            mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getEmail()));
 //            updateUI(true);
+            launchActivity(HomeActivity.class);
         } else {
             // Signed out, show unauthenticated UI.
 //            updateUI(false);
