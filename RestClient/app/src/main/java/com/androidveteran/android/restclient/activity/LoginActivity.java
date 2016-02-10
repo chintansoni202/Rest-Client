@@ -3,10 +3,11 @@ package com.androidveteran.android.restclient.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.Button;
 
 import com.androidveteran.android.restclient.R;
 import com.androidveteran.android.restclient.baseclass.BaseAppCompatActivity;
+import com.androidveteran.android.restclient.utils.SharedPreferencesUtils;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -18,11 +19,13 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
-public class LoginActivity extends BaseAppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+public class LoginActivity extends BaseAppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
     private static final int RC_SIGN_IN = 9001;
     private final String TAG = this.getClass().getName();
     private GoogleApiClient mGoogleApiClient;
+
+    private Button mButtonSkip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,7 @@ public class LoginActivity extends BaseAppCompatActivity implements GoogleApiCli
                 .build();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
@@ -116,7 +119,8 @@ public class LoginActivity extends BaseAppCompatActivity implements GoogleApiCli
 //            user.setEmail(acct.getEmail());
 //            user.save();
 
-            Toast.makeText(LoginActivity.this, acct.getDisplayName() + " - " + acct.getEmail(), Toast.LENGTH_SHORT).show();
+            SharedPreferencesUtils.getInstance(this).setBoolean("isUserLoggedIn", true);
+//            Toast.makeText(LoginActivity.this, acct.getDisplayName() + " - " + acct.getEmail(), Toast.LENGTH_SHORT).show();
 //            mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getEmail()));
 //            updateUI(true);
             launchActivity(HomeActivity.class);
@@ -136,5 +140,26 @@ public class LoginActivity extends BaseAppCompatActivity implements GoogleApiCli
                         // [END_EXCLUDE]
                     }
                 });
+    }
+
+    @Override
+    protected void initiateViews() {
+        mButtonSkip = (Button) findViewById(R.id.btnLoginSkip);
+        mButtonSkip.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnLoginSkip:
+                launchActivity(HomeActivity.class);
+                break;
+            case R.id.btnLoginLogin:
+                // TODO: Yet to be implemented
+                break;
+            case R.id.btnLoginSignUp:
+                // TODO: Yet to be implemented
+                break;
+        }
     }
 }

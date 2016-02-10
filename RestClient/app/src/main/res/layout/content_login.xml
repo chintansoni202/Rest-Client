@@ -123,4 +123,13 @@
         android:layout_below="@+id/tvLoginSignInWithSocialLabel"
         android:layout_marginTop="@dimen/margin_16" />
 
+    <Button
+        android:id="@+id/btnLoginSkip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/selectableItemBackground"
+        android:text="@string/string_login_skip_for_now"
+        android:textColor="@android:color/white" />
+
 </RelativeLayout>
