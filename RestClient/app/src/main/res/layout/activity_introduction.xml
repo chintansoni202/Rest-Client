@@ -57,9 +57,10 @@
             android:id="@+id/btnIntroductionNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="?attr/selectableItemBackground"
-            android:text=">"
+            android:text="@string/string_next_arrow"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/white" />
     </RelativeLayout>

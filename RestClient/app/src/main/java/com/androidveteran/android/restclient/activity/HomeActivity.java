@@ -101,6 +101,11 @@ public class HomeActivity extends BaseAppCompatActivity
     }
 
     @Override
+    public int getLayoutResourceId() {
+        return 0;
+    }
+
+    @Override
     protected void initiateViews() {
         mFloatingActionButton = (FloatingActionButton) findViewById(R.id.fabHomeActivity);
     }

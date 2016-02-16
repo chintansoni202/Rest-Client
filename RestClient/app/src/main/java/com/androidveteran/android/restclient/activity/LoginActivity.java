@@ -32,6 +32,8 @@ public class LoginActivity extends BaseAppCompatActivity implements GoogleApiCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mButtonSkip.setOnClickListener(this);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -143,9 +145,13 @@ public class LoginActivity extends BaseAppCompatActivity implements GoogleApiCli
     }
 
     @Override
+    public int getLayoutResourceId() {
+        return 0;
+    }
+
+    @Override
     protected void initiateViews() {
         mButtonSkip = (Button) findViewById(R.id.btnLoginSkip);
-        mButtonSkip.setOnClickListener(this);
     }
 
     @Override

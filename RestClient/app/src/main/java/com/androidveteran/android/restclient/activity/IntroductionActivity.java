@@ -15,13 +15,13 @@ public class IntroductionActivity extends BaseAppCompatActivity implements View.
     private ViewPager mViewPager;
     private RadioGroup mRadioGroup;
     private Button mButtonSkip;
+    private Button mButtonDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasToolBar(false);
         setContentView(R.layout.activity_introduction);
-
-        findViewsById();
 
         IntroductionFragmentPagerAdapter introductionFragmentPagerAdapter = new IntroductionFragmentPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(introductionFragmentPagerAdapter);
@@ -36,12 +36,18 @@ public class IntroductionActivity extends BaseAppCompatActivity implements View.
                 switch (position) {
                     case 0:
                         mRadioGroup.check(R.id.rbIntroduction0);
+                        mButtonSkip.setVisibility(View.VISIBLE);
+                        mButtonDone.setText(getStringResource(R.string.string_next_arrow));
                         break;
                     case 1:
                         mRadioGroup.check(R.id.rbIntroduction1);
+                        mButtonSkip.setVisibility(View.VISIBLE);
+                        mButtonDone.setText(getStringResource(R.string.string_next_arrow));
                         break;
                     case 2:
                         mRadioGroup.check(R.id.rbIntroduction2);
+                        mButtonSkip.setVisibility(View.INVISIBLE);
+                        mButtonDone.setText(getStringResource(R.string.string_done));
                         break;
                 }
             }
@@ -70,12 +76,7 @@ public class IntroductionActivity extends BaseAppCompatActivity implements View.
         });
 
         mButtonSkip.setOnClickListener(this);
-    }
-
-    private void findViewsById() {
-        mViewPager = (ViewPager) findViewById(R.id.vpIntroduction);
-        mButtonSkip = (Button) findViewById(R.id.btnIntroductionSkip);
-        mRadioGroup = (RadioGroup) findViewById(R.id.rgIntroduction);
+        mButtonDone.setOnClickListener(this);
     }
 
     @Override
@@ -85,8 +86,25 @@ public class IntroductionActivity extends BaseAppCompatActivity implements View.
                 launchActivity(LoginActivity.class);
                 break;
             case R.id.btnIntroductionNext:
-
+                mViewPager.setCurrentItem(
+                        mViewPager.getCurrentItem() == 2
+                                ? 0
+                                : mViewPager.getCurrentItem() + 1
+                        , true);
                 break;
         }
+    }
+
+    @Override
+    public int getLayoutResourceId() {
+        return 0;
+    }
+
+    @Override
+    protected void initiateViews() {
+        mViewPager = (ViewPager) findViewById(R.id.vpIntroduction);
+        mButtonSkip = (Button) findViewById(R.id.btnIntroductionSkip);
+        mRadioGroup = (RadioGroup) findViewById(R.id.rgIntroduction);
+        mButtonDone = (Button) findViewById(R.id.btnIntroductionNext);
     }
 }
