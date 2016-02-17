@@ -3,13 +3,13 @@ package com.androidveteran.android.restclient.baseclass;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.activeandroid.ActiveAndroid;
 import com.androidveteran.android.restclient.R;
 
 /**
@@ -18,23 +18,46 @@ import com.androidveteran.android.restclient.R;
 public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
+    private Toolbar mToolbar;
+    private TabLayout mTabLayout;
+
+    private boolean hasToolBar;
+    private boolean hasTabLayout;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-
-        initToolBar();
-
-        initDatabase();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getLayoutResourceId());
+        initiateViews();
     }
 
-    private void initDatabase() {
-        ActiveAndroid.initialize(this);
+    protected abstract int getLayoutResourceId();
+
+    protected abstract void initiateViews();
+
+    public void setHasToolBar(boolean hasToolBar) {
+        this.hasToolBar = hasToolBar;
     }
 
     public void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        if (hasToolBar) {
+            mToolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(mToolbar);
+        }
+    }
+
+    public Toolbar getToolBar() {
+        return mToolbar;
+    }
+
+    public void setHasTabLayout(boolean hasTabLayout) {
+        this.hasTabLayout = hasTabLayout;
+    }
+
+    public void initTabLayout() {
+        if (hasTabLayout) {
+            mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        }
     }
 
     public void showProgressDialog() {
@@ -73,5 +96,12 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
     public void launchActivity(Class activity) {
         launchActivity(activity, null);
+    }
+
+    public void loadFragment() {
+    }
+
+    public String getStringResource(int key) {
+        return getResources().getString(key);
     }
 }
