@@ -3,9 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:fitsSystemWindows="true"
     tools:context=".activity.SplashActivity">
 
     <include layout="@layout/content_splash" />
+
+    <com.androidveteran.android.restclient.customview.RobotoButton
+        android:id="@+id/btnSplash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginRight="@dimen/margin_16"
+        android:padding="@dimen/padding_24"
+        android:text="@string/get_started"
+        android:textColor="@color/colorPrimary"
+        android:visibility="invisible" />
 
 </android.support.design.widget.CoordinatorLayout>

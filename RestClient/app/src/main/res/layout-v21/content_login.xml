@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:padding="@dimen/padding_32"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.androidveteran.android.restclient.activity.LoginActivity"
@@ -16,7 +17,8 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/background_logo"
         android:padding="@dimen/padding_24"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        android:transitionName="appLogo" />
 
     <Button
         android:id="@+id/btnLoginLogin"

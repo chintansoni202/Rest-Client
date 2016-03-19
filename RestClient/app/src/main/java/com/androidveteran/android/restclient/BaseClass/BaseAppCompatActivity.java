@@ -11,9 +11,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.androidveteran.android.restclient.R;
+
+import butterknife.ButterKnife;
 
 /**
  * Created by chint on 04-02-2016.
@@ -27,33 +30,35 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutResourceId());
-        initiateViews();
+        setContentView(getLayoutResource());
+        ButterKnife.bind(this);
     }
 
-    protected abstract int getLayoutResourceId();
+    protected abstract int getLayoutResource();
 
-    protected abstract void initiateViews();
-
-    public void setHasToolBar(boolean hasToolBar) {
-        if (hasToolBar) {
-            mToolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(mToolbar);
-        }
+    public void initToolBar() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
     }
 
     public Toolbar getToolBar() {
         return mToolbar;
     }
 
-    public void setHasTabLayout(boolean hasTabLayout) {
-        if (hasTabLayout) {
-            mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        }
+    public void initTabLayout() {
+        mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
     }
 
     public TabLayout getTabLayout() {
         return mTabLayout;
+    }
+
+    public void showTabLayout(){
+        mTabLayout.setVisibility(View.VISIBLE);
+    }
+
+    public void hideTabLayout(){
+        mTabLayout.setVisibility(View.GONE);
     }
 
     public void showProgressDialog() {

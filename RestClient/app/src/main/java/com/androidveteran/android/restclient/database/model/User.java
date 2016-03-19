@@ -9,6 +9,7 @@ import com.activeandroid.annotation.Table;
  */
 @Table(name = "User")
 public class User extends Model {
+
     @Column(name = "fullName")
     private String fullName;
 
@@ -38,6 +39,12 @@ public class User extends Model {
 
     public User() {
         super();
+    }
+
+    public User(String fullName, String email) {
+        super();
+        this.fullName = fullName;
+        this.email = email;
     }
 
     public String getFullName() {
@@ -110,5 +117,20 @@ public class User extends Model {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "fullName='" + fullName + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isUserVerified=" + isUserVerified +
+                ", registrationToken='" + registrationToken + '\'' +
+                ", createdDate='" + createdDate + '\'' +
+                ", updatedDate='" + updatedDate + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

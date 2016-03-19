@@ -4,19 +4,47 @@
     <string name="title_activity_introduction">IntroductionActivity</string>
 
     <string name="title_activity_login">LoginActivity</string>
-    <string name="login_sign_up">Sign Up</string>
-    <string name="login_login">Login</string>
+    <string name="login_sign_up">Sign Up using Email</string>
+    <string name="login_login">Login using Email</string>
     <string name="login_sign_in_using_email">Sign In Using Email:</string>
     <string name="login_email">email</string>
     <string name="login_password">password</string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_home">Rest Client</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="string_login_skip_for_now">Skip, for now</string>
+    <string name="string_login_skip_for_now">Skip for now</string>
+
+    <string name="string_next_arrow"><![CDATA[>]]></string>
+    <string name="string_done">Done</string>
+    <string name="get_started">Get Started</string>
+    <string name="introduction_skip">Skip</string>
+    <string name="menu_send_feedback">Send Feedback</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_about">About</string>
+
+    <string-array name="roboto_fonts">
+        <item>Roboto-Black.ttf</item>
+        <item>Roboto-BlackItalic.ttf</item>
+        <item>Roboto-Bold.ttf</item>
+        <item>Roboto-BoldItalic.ttf</item>
+        <item>Roboto-Italic.ttf</item>
+        <item>Roboto-Light.ttf</item>
+        <item>Roboto-LightItalic.ttf</item>
+        <item>Roboto-Medium.ttf</item>
+        <item>Roboto-MediumItalic.ttf</item>
+        <item>Roboto-Regular.ttf</item>
+        <item>Roboto-Thin.ttf</item>
+        <item>Roboto-ThinItalic.ttf</item>
+        <item>RobotoCondensed-Bold.ttf</item>
+        <item>RobotoCondensed-BoldItalic.ttf</item>
+        <item>RobotoCondensed-Italic.ttf</item>
+        <item>RobotoCondensed-Light.ttf</item>
+        <item>RobotoCondensed-LightItalic.ttf</item>
+        <item>RobotoCondensed-Regular.ttf</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="string_next_arrow"><![CDATA[>]]></string>
-    <string name="string_done">Done</string>
+
 </resources>
