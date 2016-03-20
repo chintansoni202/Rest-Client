@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlListItemRequestBodyFormData"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_16">
+
+    <com.androidveteran.android.restclient.customview.RobotoTextView
+        android:id="@+id/tvListItemRequestBodyFormDataKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textColor="@color/colorPrimaryText"
+        custom:font="roboto_medium" />
+
+    <com.androidveteran.android.restclient.customview.RobotoTextView
+        android:id="@+id/tvListItemRequestBodyFormDataValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvListItemRequestBodyFormDataKey"
+        android:layout_marginTop="@dimen/margin_8"
+        android:text="chintansoni"
+        android:textColor="@color/colorSecondaryText"
+        custom:font="roboto_medium_italic" />
+
+    <ImageButton
+        android:id="@+id/ibListItemRequestBodyFormDataDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="?attr/selectableItemBackground"
+        android:src="@drawable/ic_delete" />
+
+</RelativeLayout>

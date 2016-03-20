@@ -1,50 +1,60 @@
 package com.androidveteran.android.restclient.fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 import com.androidveteran.android.restclient.R;
+import com.androidveteran.android.restclient.adapter.RequestBodyPagerAdapter;
+import com.androidveteran.android.restclient.baseclass.BaseFragment;
+import com.androidveteran.android.restclient.utils.SharedPreferencesUtils;
 
-public class RequestFragment extends Fragment {
+import butterknife.Bind;
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
+public class RequestFragment extends BaseFragment {
 //    private OnFragmentInteractionListener mListener;
+
+    @Bind(R.id.spRequestMethod)
+    Spinner mSpinnerMethod;
+
+    @Bind(R.id.etRequestUrl)
+    EditText mEditTextUrl;
+
+    @Bind(R.id.llRequestHeaders)
+    LinearLayout mLinearLayoutHeaders;
+
+    @Bind(R.id.llRequestParameters)
+    LinearLayout mLinearLayoutParameters;
+
+    @Bind(R.id.vpRequestBody)
+    ViewPager mViewPagerBody;
 
     public RequestFragment() {
         // Required empty public constructor
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_request, container, false);
+    protected int getResourceLayout() {
+        return R.layout.fragment_request;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mViewPagerBody.setAdapter(new RequestBodyPagerAdapter(getFragmentManager()));
     }
 
     // TODO: Rename method, update argument and hook method into UI event

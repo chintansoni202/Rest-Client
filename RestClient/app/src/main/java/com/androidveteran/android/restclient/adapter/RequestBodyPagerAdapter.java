@@ -4,15 +4,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.androidveteran.android.restclient.fragment.RequestFragment;
-import com.androidveteran.android.restclient.fragment.ResponseFragment;
+import com.androidveteran.android.restclient.fragment.RequestBodyFormDataFragment;
+import com.androidveteran.android.restclient.fragment.RequestBodyRawFragment;
 
 /**
- * Created by chint on 3/20/2016.
+ * Created by chint on 3/21/2016.
  */
-public class RequestResponsePagerAdapter extends FragmentPagerAdapter {
+public class RequestBodyPagerAdapter extends FragmentPagerAdapter {
 
-    public RequestResponsePagerAdapter(FragmentManager fm) {
+    public RequestBodyPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -21,10 +21,11 @@ public class RequestResponsePagerAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                return new RequestFragment();
+                return new RequestBodyRawFragment();
             case 1:
-                return new ResponseFragment();
+                return new RequestBodyFormDataFragment();
         }
+
         return null;
     }
 
@@ -35,12 +36,12 @@ public class RequestResponsePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
+        switch (position){
             case 0:
-                return "Request";
+                return "Raw";
             case 1:
-                return "Response";
+                return "Form Data";
         }
-        return null;
+        return "";
     }
 }
